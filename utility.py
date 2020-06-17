@@ -46,6 +46,6 @@ def forward_and_backward_substitution(img, x_0, alpha, beta):
 		prev_row, prev_col = (i-1)//img_size[1], (i-1)%img_size[1]
 		x = generate_abm(x, alpha, beta)
 		xor_value = round(x * (10**14)) % 256
-		img[prev_row][prev_col] = img[prev_row][prev_col] ^ (s_list[t_list[img[cur_row][cur_col]]]) ^ xor_value
+		img[prev_row][prev_col] = img[prev_row][prev_col] ^ (t_list[s_list[img[cur_row][cur_col]]]) ^ xor_value
 
 	return img, x
