@@ -6,17 +6,8 @@ def decompositon(img):
     for row in range(img.shape[0]):
         for col in range(img.shape[1]):
             newImg[row][col] = (img[row][col] >> 6) & 3 # (img[row][col] >> 6) & 00000011 
-    
-    for row in range(img.shape[0]):
-        for col in range(img.shape[1]):
             newImg[row][col + img.shape[1]] = (img[row][col] >> 4) & 3 # (img[row][col] >> 4) & 00000011 
-    
-    for row in range(img.shape[0]):
-        for col in range(img.shape[1]):
             newImg[row + img.shape[0]][col] = (img[row][col] >> 2) & 3 # (img[row][col] >> 2) & 00000011 
-
-    for row in range(img.shape[0]):
-        for col in range(img.shape[1]):
             newImg[row + img.shape[0]][col + img.shape[1]] = (img[row][col]) & 3 # (img[row][col]) & 00000011 
 
     return newImg
@@ -33,11 +24,12 @@ def compose(img):
 
     return newImg
 
-img = cv2.imread("image.png", cv2.IMREAD_GRAYSCALE)
-new = decompositon(img)
-cv2.imwrite('decompose.png', new)
+if __name__ == '__main__':
+    img = cv2.imread("image.png", cv2.IMREAD_GRAYSCALE)
+    new = decompositon(img)
+    cv2.imwrite('decompose.png', new)
 
-img = cv2.imread("decompose.png", cv2.IMREAD_GRAYSCALE)
-new = compose(new)
-cv2.imwrite('result.png', new)
+    img = cv2.imread("decompose.png", cv2.IMREAD_GRAYSCALE)
+    new = compose(new)
+    cv2.imwrite('result.png', new)
 
