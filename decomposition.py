@@ -25,11 +25,10 @@ def compose(img):
     return newImg
 
 if __name__ == '__main__':
-    img = cv2.imread("image.png", cv2.IMREAD_GRAYSCALE)
+    img = cv2.imread("D:/github/image.png", cv2.IMREAD_GRAYSCALE)
     new = decompositon(img)
-    cv2.imwrite('decompose.png', new)
+    cv2.imwrite('D:/github/decompose.png', new)
 
-    img = cv2.imread("decompose.png", cv2.IMREAD_GRAYSCALE)
+    img = cv2.imread("D:/github/decompose.png", cv2.IMREAD_GRAYSCALE)
     new = compose(new)
     cv2.imwrite('result.png', new)
-
