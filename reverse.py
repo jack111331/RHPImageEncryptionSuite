@@ -4,6 +4,7 @@ import numpy as np
 def forward_and_backward_substitution_reverse(img, x_0, alpha, beta):
     x = x_0
     img_size = img.shape
+    # let x can be used correctly
     for row in range(img_size[0]*2-1, -1, -1):
         for col in range(img_size[1]*2-1, -1, -1):
             if row == 0 and col == 0:
