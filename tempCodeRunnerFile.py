@@ -1,1 +1,0 @@
-, cv2.IMREAD_GRAYSCALE
